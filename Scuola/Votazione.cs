@@ -6,13 +6,20 @@ namespace Scuola
 {
     public class Votazione
     {
-        public int Voto { get; set; }
+        public int Voto { get; private set; }
         public DateTime Data { get; set; }
         public Materia Materia { get; private set; }
+
         public Votazione(int v, DateTime d )
         {
             Voto = v;
+            Studente.AddVoto(v);
             Data = d;
+        }
+
+        public double GetVotoDouble()
+        {
+            return Voto;
         }
 
         public bool isSufficiente()

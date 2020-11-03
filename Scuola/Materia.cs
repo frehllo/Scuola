@@ -6,7 +6,7 @@ namespace Scuola
 {
     public class Materia
     {
-        public string Nome { get; set; }
+        public string Nome { get; private set; }
 
         public Materia(string n)
         {

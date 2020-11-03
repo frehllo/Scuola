@@ -9,9 +9,11 @@ namespace Scuola
         public string Nome { get; private set; }
         public string Cognome { get; private set; }
 
-        public DateTime DataNascita;
+        public DateTime DataNascita {private get; set; }
 
-        public List<Votazione> Voti { get; private set; }
+        public List<Votazione> Voti { get; private set; } = new List<Votazione>();
+
+        public List<Studente> Studenti { get; set; }
 
         public Studente (string nome, string cognome)
         {
@@ -28,6 +30,38 @@ namespace Scuola
         public void AddVoto(Votazione v)
         {
             Voti.Add(v);
+        }
+
+        public Votazione TrovaVotoMassimo()
+        {
+            double max = -1;
+            int indice = 0;
+            for (int i = 0; i < Studenti.Count; i++)
+            {
+                Votazione Voto = Studenti[i].TrovaVotoMassimo();
+                if (Voto.GetVotoDouble() > max)
+                {
+                    max = Voto.GetVotoDouble();
+                    indice = i;
+                }
+            }
+            return Studenti[indice].TrovaVotoMassimo();
+        }
+
+        public Votazione TrovaVotoMinimo()
+        {
+            double min = 11;
+            int indice = 0;
+            for (int i = 0; i < Studenti.Count; i++)
+            {
+                Votazione Voto = Studenti[i].TrovaVotoMassimo();
+                if (Voto.GetVotoDouble() < min)
+                {
+                    max = Voto.GetVotoDouble();
+                    indice = i;
+                }
+            }
+            return Studenti[indice].TrovaVotoMassimo();
         }
     }
 }

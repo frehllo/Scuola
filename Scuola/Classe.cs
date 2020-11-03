@@ -27,5 +27,38 @@ namespace Scuola
         {
             Studenti.Add(s);
         }
+
+        public Votazione TrovaVotoMassimo()
+        {
+            double max = -1;
+            int indice = 0;
+            for(int i = 0; i < Studenti.Count; i++)
+            {
+                Votazione Voto = Studenti[i].TrovaVotoMassimo();
+                if(Voto.GetVotoDouble() > max)
+                {
+                    max = Voto.GetVotoDouble();
+                    indice = i;
+                }
+            }
+            return Studenti[indice].TrovaVotoMassimo();
+        }
+
+        public Votazione TrovaVotoMinimo()
+        {
+            double min = 11;
+            int indice = 0;
+            for (int i = 0; i < Studenti.Count; i++)
+            {
+                Votazione Voto = Studenti[i].TrovaVotoMassimo();
+                if (Voto.GetVotoDouble() < min)
+                {
+                    min = Voto.GetVotoDouble();
+                    indice = i;
+                }
+            }
+            return Studenti[indice].TrovaVotoMinimo();
+        }
+
     }
 }
