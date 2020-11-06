@@ -4,14 +4,16 @@ using System.Text;
 
 namespace Scuola
 {
-    public class Classe
+    internal class Classe
     {
         public int Anno { get; set; }
         public string Sezione { get; set; }
 
         public List<Studente> Studenti { get; private set; }
 
-        public Classe(int a, string sezione)
+        public List<Docente> Docenti { get; private set; }
+
+        internal Classe(int a, string sezione)
         {
             Anno = a;
             this.Sezione = sezione;

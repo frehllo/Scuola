@@ -4,17 +4,19 @@ using System.Text;
 
 namespace Scuola
 {
-    public class Votazione
+    internal class Votazione
     {
         public int Voto { get; private set; }
         public DateTime Data { get; set; }
         public Materia Materia { get; private set; }
+        public List<Docente> Docenti { get; private set; }
 
-        public Votazione(int v, DateTime d )
+        public Votazione(int v, Studente s, Materia m )
         {
             Voto = v;
-            Studente.AddVoto(v);
-            Data = d;
+            Materia = m;
+            s.AddVoto(this);
+            Data = DateTime.Now;
         }
 
         public double GetVotoDouble()

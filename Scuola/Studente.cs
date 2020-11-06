@@ -57,11 +57,26 @@ namespace Scuola
                 Votazione Voto = Studenti[i].TrovaVotoMassimo();
                 if (Voto.GetVotoDouble() < min)
                 {
-                    max = Voto.GetVotoDouble();
+                    min = Voto.GetVotoDouble();
                     indice = i;
                 }
             }
             return Studenti[indice].TrovaVotoMassimo();
+        }
+
+        public Votazione TrovaVotoRecente ()
+        {
+            DateTime datarecente = new DateTime(2020, 9, 11);
+            int indice = 0;
+            for (int  i = 0; i < Voti.Count; i++)
+            {
+                if(Voti[i].Data > datarecente)
+                {
+                    datarecente = Voti[i].Data;
+                    indice = i;
+                }
+            }
+            return Voti[indice];
         }
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Scuola
 {
-    public class Scuola
+    internal class Scuola
     {
         public string Nome { get; private set; }
 
@@ -11,7 +11,9 @@ namespace Scuola
 
         public List<Materia> Materie { get; private set; } = new List<Materia>();
 
-        public List<Studente> Studenti { get; private set; };
+        public List<Studente> Studenti { get; private set; }
+
+        public List<Docente> Docenti { get; private set; }
 
         public Scuola (string n)
         {
